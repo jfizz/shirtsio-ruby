@@ -10,7 +10,7 @@ module Shirtsio
       response
     end
 
-    def Webhooks.add(params={})
+    def Webhooks.register(params={})
       webhooks_register_url = @webhooks_url + 'register/'
       response, api_key = Shirtsio.request(:post, webhooks_register_url, @api_key, params)
       Util.convert_to_shirtsio_object(response, api_key)

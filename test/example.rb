@@ -1,7 +1,7 @@
 #require File.expand_path('../../lib/*', __FILE__)
 require "shirtsio"
 
-Shirtsio.api_key = 'a086134c5625ebfd4e080d19749bc0cb736ad1d5'
+Shirtsio.api_key = '3ef58f89c6c8d0ce3f71e4ab3537db4e24d6ac40'
 
 ###### Category ######
 #categories = Shirtsio::Category.all()
@@ -31,5 +31,11 @@ Shirtsio.api_key = 'a086134c5625ebfd4e080d19749bc0cb736ad1d5'
 
 ###### Webhooks ######
 #params = {'username' => 'deantest', 'password' => 'Pa$$w0rd'}
+new_webhooks = Shirtsio::Webhooks.register(:url => 'www.baidu.com')
+puts new_webhooks[:result]
+
+delete_webhooks = Shirtsio::Webhooks.delete(:url => 'www.baidu.com')
+puts delete_webhooks[:result]
+
 webhooks = Shirtsio::Webhooks.list()
 puts webhooks[:result][:listener_url]

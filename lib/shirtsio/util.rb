@@ -19,7 +19,9 @@ module Shirtsio
       types = {
           'category' => Category,
           'product' => Product,
-          'quote' => Quote
+          'quote' => Quote,
+          'authentication' => Authentication,
+          'webhooks' => Webhooks
       }
       case resp
         when Array

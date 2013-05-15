@@ -19,9 +19,17 @@ Shirtsio.api_key = 'a086134c5625ebfd4e080d19749bc0cb736ad1d5'
 
 
 ###### Quote ######
-params = {'garment[0][product_id]' => 3, 'garment[0][color]' => 'White',
-          'garment[0][sizes][med]' => 100, 'print[front][color_count]' => 5}
-quote = Shirtsio::Quote.get_quote(params)
-puts quote[:result][:subtotal]
+#params = {'garment[0][product_id]' => 3, 'garment[0][color]' => 'White',
+#          'garment[0][sizes][med]' => 100, 'print[front][color_count]' => 5}
+#quote = Shirtsio::Quote.get_quote(params)
+#puts quote[:result][:subtotal]
 
-###### Status ######
+###### Auth ######
+#params = {'username' => 'deantest', 'password' => 'Pa$$w0rd'}
+#auth_result = Shirtsio::Authentication.auth(params)
+#puts auth_result[:result][:api_key]
+
+###### Webhooks ######
+#params = {'username' => 'deantest', 'password' => 'Pa$$w0rd'}
+webhooks = Shirtsio::Webhooks.list()
+puts webhooks[:result][:listener_url]

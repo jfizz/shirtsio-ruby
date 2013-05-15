@@ -17,6 +17,7 @@ require "shirtsio/product"
 require "shirtsio/quote"
 require "shirtsio/authentication"
 require "shirtsio/webhooks"
+require "shirtsio/status"
 
 # Error
 require "shirtsio/errors/shirtsio_error"

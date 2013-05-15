@@ -3,9 +3,11 @@ require "shirtsio"
 
 Shirtsio.api_key = '3ef58f89c6c8d0ce3f71e4ab3537db4e24d6ac40'
 
+
 ###### Category ######
 #categories = Shirtsio::Category.all()
 #puts categories.result
+
 
 ###### Product ######
 #products = Shirtsio::Product.list_products(:category_id => "3")
@@ -24,18 +26,25 @@ Shirtsio.api_key = '3ef58f89c6c8d0ce3f71e4ab3537db4e24d6ac40'
 #quote = Shirtsio::Quote.get_quote(params)
 #puts quote[:result][:subtotal]
 
+
 ###### Auth ######
 #params = {'username' => 'deantest', 'password' => 'Pa$$w0rd'}
 #auth_result = Shirtsio::Authentication.auth(params)
 #puts auth_result[:result][:api_key]
 
+
 ###### Webhooks ######
 #params = {'username' => 'deantest', 'password' => 'Pa$$w0rd'}
-new_webhooks = Shirtsio::Webhooks.register(:url => 'www.baidu.com')
-puts new_webhooks[:result]
+#new_webhooks = Shirtsio::Webhooks.register(:url => 'www.baidu.com')
+#puts new_webhooks[:result]
+#
+#delete_webhooks = Shirtsio::Webhooks.delete(:url => 'www.baidu.com')
+#puts delete_webhooks[:result]
+#
+#webhooks = Shirtsio::Webhooks.list()
+#puts webhooks[:result][:listener_url]
 
-delete_webhooks = Shirtsio::Webhooks.delete(:url => 'www.baidu.com')
-puts delete_webhooks[:result]
 
-webhooks = Shirtsio::Webhooks.list()
-puts webhooks[:result][:listener_url]
+###### Status ######
+order_status = Shirtsio::Status.get_order_status(:order_id => '999999')
+puts order_status[:result]

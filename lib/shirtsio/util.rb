@@ -21,7 +21,9 @@ module Shirtsio
           'product' => Product,
           'quote' => Quote,
           'authentication' => Authentication,
-          'webhooks' => Webhooks
+          'webhooks' => Webhooks,
+          'status' => Status,
+          'order' => Order
       }
       case resp
         when Array

@@ -46,5 +46,28 @@ Shirtsio.api_key = '3ef58f89c6c8d0ce3f71e4ab3537db4e24d6ac40'
 
 
 ###### Status ######
-order_status = Shirtsio::Status.get_order_status(:order_id => '999999')
-puts order_status[:result]
+#order_status = Shirtsio::Status.get_order_status(:order_id => '999999')
+#puts order_status[:result]
+
+
+###### Order ######
+Dir.chdir(File.dirname(__FILE__))
+art_work_file_front = File.new("front.png", "rb")
+proof_file_front = File.new("front.jpg", "rb")
+art_work_file_back = File.new("back.png", "rb")
+proof_front_file_back = File.new("back.jpg", "rb")
+data = {
+    'test' => "True", 'price' => '79.28',
+    'print[back][color_count]' => '4', 'print[back][colors][0]' => "101C", 'print[back][colors][1]' => '107U',
+    'addresses[0][name]' => 'John Doe', 'addresses[0][address]' => '123 Hope Ln.',
+    'addresses[0][city]' => 'Las Vegas', 'addresses[0][state]' => 'Nevada', 'addresses[0][country]' => 'US',
+    'addresses[0][zipcode]' => '12345', 'addresses[0][batch]' => 1, 'addresses[0][sizes][med]' => '2',
+    'addresses[0][sizes][lrg]' => '2',
+    'print_type' => 'Digital Print', 'ship_type' => 'Standard',
+    'garment[0][product_id]' => '2', 'garment[0][color]' => "White",
+    'garment[0][sizes][med]' => '2', 'garment[0][sizes][lrg]' => '2', 'print[front][color_count]' => '5'
+}
+
+
+order = Shirtsio::Order.place_order(data)
+puts order[:result]

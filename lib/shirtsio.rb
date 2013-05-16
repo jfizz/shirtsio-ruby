@@ -65,15 +65,16 @@ module Shirtsio
         url += "#{URI.parse(url).query ? '&' : '?'}#{uri_encode(params)}" if params && params.any?
         payload = nil
       else
-        payload = uri_encode(params)
+        #payload = uri_encode(params)
+        payload = params
     end
 
     request_opts.update(:method => method, :open_timeout => 30,
                         :payload => payload, :url => url, :timeout => 80)
 
     begin
-      puts "in shirtsio.rb"
-      puts request_opts
+      #puts "in shirtsio.rb"
+      #puts request_opts
       response = execute_request(request_opts)
     rescue SocketError => e
       handle_restclient_error(e)
@@ -208,7 +209,7 @@ module Shirtsio
   def self.handle_restclient_error(e)
     case e
       when RestClient::ServerBrokeConnection, RestClient::RequestTimeout
-        message = "Could not connect to Stripe (#{@api_base}). " +
+        message = "Could not connect to Shirts.io (#{@api_base}). " +
             "Please check your internet connection and try again. "
 
       when RestClient::SSLCertificateNotVerified

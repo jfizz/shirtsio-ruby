@@ -9,6 +9,7 @@ module Shirtsio
       list_products_url = @category_url + category_id + "/"
       response, api_key = Shirtsio.request(:get, list_products_url, @api_key, params={})
       Util.convert_to_shirtsio_object(response, api_key)
+      response
     end
 
     def Product.get_product(params={})
@@ -16,6 +17,7 @@ module Shirtsio
       get_product_url = @products_url + product_id + "/"
       response, api_key = Shirtsio.request(:get, get_product_url, @api_key, params={})
       Util.convert_to_shirtsio_object(response, api_key)
+      response
     end
 
     def Product.inventory_count(params={})

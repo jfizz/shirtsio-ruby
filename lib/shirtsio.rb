@@ -188,7 +188,7 @@ module Shirtsio
   end
 
   def self.invalid_request_error(error, rcode, rbody, error_obj)
-    InvalidRequestError.new(error[:message], error[:param], rcode,
+    InvalidRequestError.new(error, nil, rcode,
                             rbody, error_obj)
   end
 

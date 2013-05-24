@@ -26,13 +26,6 @@ Shirtsio.api_key = '3ef58f89c6c8d0ce3f71e4ab3537db4e24d6ac40'
 #quote = Shirtsio::Quote.get_quote(params)
 #puts quote[:result][:subtotal]
 
-
-###### Auth ######
-#params = {'username' => 'deantest', 'password' => 'Pa$$w0rd'}
-#auth_result = Shirtsio::Authentication.auth(params)
-#puts auth_result[:result][:api_key]
-
-
 ###### Webhooks ######
 #new_webhooks = Shirtsio::Webhooks.register(:url => 'www.baidu.com')
 #puts new_webhooks[:result]

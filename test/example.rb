@@ -1,7 +1,7 @@
 #require File.expand_path('../../lib/*', __FILE__)
 require "shirtsio"
 
-Shirtsio.api_key = '3ef58f89c6c8d0ce3f71e4ab3537db4e24d6ac40'
+Shirtsio.api_key = '0ef58f89c6c8d0ce3f71e4ab3537db4e24d6ac40'
 
 
 ###### Category ######

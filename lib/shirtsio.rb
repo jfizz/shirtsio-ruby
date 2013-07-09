@@ -129,17 +129,17 @@ module Shirtsio
 
   def self.request_headers(api_key)
     headers = {
-        :user_agent => "Stripe/v1 RubyBindings/#{Shirtsio::VERSION}",
+        :user_agent => "Shirtsio/v1 RubyBindings/#{Shirtsio::VERSION}",
         :authorization => "Bearer #{api_key}",
         :content_type => 'application/x-www-form-urlencoded'
     }
 
-    headers[:stripe_version] = api_version if api_version
+    headers[:Shirtsio_version] = api_version if api_version
 
     begin
-      headers.update(:x_stripe_client_user_agent => Shirtsio::JSON.dump(user_agent))
+      headers.update(:x_Shirtsio_client_user_agent => Shirtsio::JSON.dump(user_agent))
     rescue => e
-      headers.update(:x_stripe_client_raw_user_agent => user_agent.inspect,
+      headers.update(:x_Shirtsio_client_raw_user_agent => user_agent.inspect,
                      :error => "#{e} (#{e.class})")
     end
   end
@@ -213,17 +213,17 @@ module Shirtsio
             "Please check your internet connection and try again. "
 
       when RestClient::SSLCertificateNotVerified
-        message = "Could not verify Stripe's SSL certificate. " +
+        message = "Could not verify Shirtsio's SSL certificate. " +
             "Please make sure that your network is not intercepting certificates. "
 
       when SocketError
-        message = "Unexpected error communicating when trying to connect to Stripe. " +
+        message = "Unexpected error communicating when trying to connect to Shirtsio. " +
             "You may be seeing this message because your DNS is not working. " +
             "To check, try running 'host www.shirts.io' from the command line."
 
       else
-        message = "Unexpected error communicating with Stripe. " +
-            "If this problem persists, let us know at jerry@ooshirts.com."
+        message = "Unexpected error communicating with Shirtsio. " +
+            "If this problem persists, let us know at support@shirts.io"
 
     end
 

@@ -134,12 +134,12 @@ module Shirtsio
         :content_type => 'application/x-www-form-urlencoded'
     }
 
-    headers[:Shirtsio_version] = api_version if api_version
+    headers[:shirtsio_version] = api_version if api_version
 
     begin
-      headers.update(:x_Shirtsio_client_user_agent => Shirtsio::JSON.dump(user_agent))
+      headers.update(:x_shirtsio_client_user_agent => Shirtsio::JSON.dump(user_agent))
     rescue => e
-      headers.update(:x_Shirtsio_client_raw_user_agent => user_agent.inspect,
+      headers.update(:x_shirtsio_client_raw_user_agent => user_agent.inspect,
                      :error => "#{e} (#{e.class})")
     end
   end
